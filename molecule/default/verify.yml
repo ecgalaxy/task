@@ -1,0 +1,12 @@
+---
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+  - name: Check Task version
+    command: task --version
+    register: output
+  - name: Assert that Task is installed
+    assert:
+      that:
+      - "'Task' in output.stdout"
