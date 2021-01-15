@@ -1,0 +1,22 @@
+---
+- name: Check if Task is already installed
+  stat:
+    path: "{{ task_bin }}"
+  register: __task_bin
+
+- block:
+  - name: Download Task installer
+    get_url:
+      url: https://taskfile.dev/install.sh
+      dest: /tmp/task-installer.sh
+      mode: 0655
+
+  - name: Install Task
+    command: "/tmp/task-installer.sh -b {{ task_path }}"
+    become: true
+
+  - name: Remove Task installer
+    file:
+      path: /tmp/task-installer.sh
+      state: absent
+  when: not __task_bin.stat.exists

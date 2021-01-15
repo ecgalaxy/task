@@ -6,7 +6,8 @@ Installs Task - https://taskfile.dev/
 Requirements
 ------------
 
-None.
+* tar
+* wget
 
 Role Variables
 --------------
@@ -16,7 +17,7 @@ None.
 Dependencies
 ------------
 
-None.
+* ecgalaxy.common_packages
 
 Example Playbook
 ----------------
