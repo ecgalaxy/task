@@ -19,5 +19,4 @@
     file:
       path: /tmp/task-installer.sh
       state: absent
-
   when: not __task_bin.stat.exists
