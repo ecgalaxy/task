@@ -39,4 +39,5 @@
     owner: root
     group: root
     state: link
+    force: true
   become: true
