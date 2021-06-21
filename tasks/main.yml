@@ -1,22 +1,43 @@
 ---
-- name: Check if Task is already installed
-  stat:
-    path: "{{ task_bin }}"
-  register: __task_bin
+- name: Ensure task lib folder exists
+  file:
+    path: "{{ task_path }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+  become: true
 
-- block:
-  - name: Download Task installer
-    get_url:
-      url: https://taskfile.dev/install.sh
-      dest: /tmp/task-installer.sh
-      mode: 0655
+- name: Download task archive
+  get_url:
+    url: "{{ task_download_url }}"
+    dest: /tmp/task.tar.gz
+    mode: 0655
+    checksum: "{{ task_checksum }}"
+  changed_when: false
 
-  - name: Install Task
-    command: "/tmp/task-installer.sh -b {{ task_path }}"
-    become: true
+- name: Extract task archive
+  unarchive:
+    src: /tmp/task.tar.gz
+    dest: "{{ task_path }}"
+    creates: "{{ task_path }}/task"
+    owner: root
+    group: root
+    remote_src: yes
+  become: true
 
-  - name: Remove Task installer
-    file:
-      path: /tmp/task-installer.sh
-      state: absent
-  when: not __task_bin.stat.exists
+- name: Remove task archive
+  file:
+    path: /tmp/task.tar.gz
+    state: absent
+  changed_when: false
+
+- name: Create task symlink
+  file:
+    src: "{{ task_path }}/task"
+    dest: "{{ task_bin }}"
+    owner: root
+    group: root
+    state: link
+    force: true
+  become: true
