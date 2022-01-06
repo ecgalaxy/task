@@ -6,13 +6,6 @@
       apt: update_cache=yes cache_valid_time=600
       when: ansible_os_family == 'Debian'
       changed_when: false
-    - name: Install Task installer dependencies
-      package:
-        name:
-          - tar
-          - wget
-        state: present
-      changed_when: false
   environment:
     http_proxy: "{{ lookup('env', 'http_proxy') }}"
     https_proxy: "{{ lookup('env', 'https_proxy') }}"

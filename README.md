@@ -22,12 +22,16 @@ Dependencies
 Example Playbook
 ----------------
 
-TODO.
+    - hosts: all
+      roles:
+        - ecgalaxy.task
 
 License
 -------
 
-EUPL-1.2
+Copyright the European Union 2022.
+
+Licensed under the EUPL-1.2 or later.
 
 Author Information
 ------------------

@@ -1,7 +1,7 @@
 ---
 - name: Ensure task lib folder exists
   file:
-    path: "{{ task_path }}"
+    path: "{{ task_install_path }}"
     state: directory
     owner: root
     group: root
@@ -19,8 +19,8 @@
 - name: Extract task archive
   unarchive:
     src: /tmp/task.tar.gz
-    dest: "{{ task_path }}"
-    creates: "{{ task_path }}/task"
+    dest: "{{ task_install_path }}"
+    creates: "{{ task_install_path }}/task"
     owner: root
     group: root
     remote_src: yes
@@ -34,7 +34,7 @@
 
 - name: Create task symlink
   file:
-    src: "{{ task_path }}/task"
+    src: "{{ task_install_path }}/task"
     dest: "{{ task_bin }}"
     owner: root
     group: root
