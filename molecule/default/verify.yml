@@ -4,12 +4,12 @@
   gather_facts: false
   tasks:
     - name: "include vars"
-      include_vars:
+      ansible.builtin.include_vars:
         file: ../../defaults/main.yml
     - name: Check Task version
-      command: task --version
+      ansible.builtin.command: task --version
       register: output
     - name: Assert that Task is installed
-      assert:
+      ansible.builtin.assert:
         that:
           - "'Task version: v{{ task_version }}' in output.stdout"

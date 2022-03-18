@@ -3,7 +3,7 @@
   hosts: all
   tasks:
     - name: "Include task"
-      include_role:
+      ansible.builtin.include_role:
         name: "task"
   environment:
     http_proxy: "{{ lookup('env', 'http_proxy') }}"

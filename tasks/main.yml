@@ -1,6 +1,6 @@
 ---
 - name: Ensure task lib folder exists
-  file:
+  ansible.builtin.file:
     path: "{{ task_install_path }}"
     state: directory
     owner: root
@@ -9,7 +9,7 @@
   become: true
 
 - name: Download task archive
-  get_url:
+  ansible.builtin.get_url:
     url: "{{ task_download_url }}"
     dest: /tmp/task.tar.gz
     mode: 0655
@@ -17,7 +17,7 @@
   changed_when: false
 
 - name: Extract task archive
-  unarchive:
+  ansible.builtin.unarchive:
     src: /tmp/task.tar.gz
     dest: "{{ task_install_path }}"
     creates: "{{ task_install_path }}/task"
@@ -27,13 +27,13 @@
   become: true
 
 - name: Remove task archive
-  file:
+  ansible.builtin.file:
     path: /tmp/task.tar.gz
     state: absent
   changed_when: false
 
 - name: Create task symlink
-  file:
+  ansible.builtin.file:
     src: "{{ task_install_path }}/task"
     dest: "{{ task_bin }}"
     owner: root
