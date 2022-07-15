@@ -1,24 +1,24 @@
 galaxy_info:
-  name: task
   author: ecgalaxy
   description: Installs Task - https://taskfile.dev/
   company: European Commission
   license: EUPL-1.2
-  min_ansible_version: 2.5
+  min_ansible_version: "2.5"
   platforms:
     - name: Amazon Linux 2
       versions:
         - all
     - name: EL
       versions:
-        - 7
-        - 8
+        - "7"
+        - "8"
     - name: Ubuntu
       versions:
         - bionic
         - focal
+        - jammy
   galaxy_tags:
     - development
     - system
 dependencies:
-  - ecgalaxy.common_packages
+  - role: ecgalaxy.common_packages
