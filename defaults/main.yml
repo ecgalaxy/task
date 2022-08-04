@@ -1,7 +1,7 @@
 ---
-task_version: 3.14.0
+task_version: 3.14.1
 task_download_url: "https://github.com/go-task/task/releases/download/v{{ task_version }}/task_linux_amd64.tar.gz"
-task_checksum: "sha256:e5786c1bfe1f503c5f1f61141988969bb51517669cb8b6b97001d03e0e482757"
+task_checksum: "sha256:46de158c611dfa6c8dc1dad4af4943a79c816949b4b2aae0ce7cc7e43f846f19"
 task_install_basedir: "/opt/task"
 task_install_path: "{{ task_install_basedir }}/{{ task_version }}"
 task_bin: "/usr/local/bin/task"
