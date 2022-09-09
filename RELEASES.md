@@ -2,7 +2,7 @@
 
 ## 1.6.x
 
-- Task v3.14.1
+- Task v3.x updates.
 
 ## 1.5.x
 
