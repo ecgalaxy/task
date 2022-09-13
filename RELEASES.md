@@ -1,5 +1,9 @@
 # Releases
 
+## 1.7.x
+
+- Task binary integrity is also verified (in addition to the downloaded archive).
+
 ## 1.6.x
 
 - Task v3.x updates.

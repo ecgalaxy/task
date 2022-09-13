@@ -13,7 +13,7 @@
     url: "{{ task_download_url }}"
     dest: /tmp/task.tar.gz
     mode: 0655
-    checksum: "{{ task_checksum }}"
+    checksum: "{{ task_archive_checksum }}"
   changed_when: false
 
 - name: Extract task archive
@@ -41,3 +41,14 @@
     state: link
     force: true
   become: true
+
+- name: Stat task binary checksum
+  ansible.builtin.stat:
+    path: "{{ task_install_path }}/task"
+    checksum_algorithm: sha256
+  register: st
+
+- name: Verify task binary checksum
+  ansible.builtin.fail:
+    msg: "Checksum verification failed, was the Task binary modified?"
+  when: st.stat.checksum != task_binary_checksum

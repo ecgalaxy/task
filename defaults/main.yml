@@ -1,7 +1,8 @@
 ---
 task_version: 3.15.2
 task_download_url: "https://github.com/go-task/task/releases/download/v{{ task_version }}/task_linux_amd64.tar.gz"
-task_checksum: "sha256:9358ee7a8dfe63f6ec9f06d26a0ca97ff13bc8d18a983367cdd0ab9bd2611bd4"
+task_archive_checksum: "sha256:9358ee7a8dfe63f6ec9f06d26a0ca97ff13bc8d18a983367cdd0ab9bd2611bd4"
+task_binary_checksum: "091087a5fba168fc17be12f7f623a46296f2bd74c2ff424bbbabb34534c18598"
 task_install_basedir: "/opt/task"
 task_install_path: "{{ task_install_basedir }}/{{ task_version }}"
 task_bin: "/usr/local/bin/task"
