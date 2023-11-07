@@ -1,10 +1,9 @@
 ---
 - name: Converge
   hosts: all
-  tasks:
-    - name: "Include task"
-      ansible.builtin.include_role:
-        name: "task"
+  roles:
+    - role: ecgalaxy.common_packages
+    - role: task
   environment:
     http_proxy: "{{ lookup('env', 'http_proxy') }}"
     https_proxy: "{{ lookup('env', 'https_proxy') }}"

@@ -6,25 +6,35 @@ Installs Task - https://taskfile.dev/
 Requirements
 ------------
 
-* tar
-* wget
+* The `tar` and `wget` commands, which can be provided by `ecgalaxy.common_packages`.
 
 Role Variables
 --------------
 
-None.
+See defaults.
 
 Dependencies
 ------------
 
-* ecgalaxy.common_packages
+* optional: ecgalaxy.common_packages
 
 Example Playbook
 ----------------
 
     - hosts: all
       roles:
+        - ecgalaxy.bootstrap
+        - ecgalaxy.common_packages
         - ecgalaxy.task
+
+One-liner
+---------
+
+    bash <(curl -s https://code.europa.eu/-/snippets/1/raw/main/ansible-role.sh) ecgalaxy.task
+
+See [ansible-role](https://code.europa.eu/-/snippets/1) for instructions.
+
+Please verify the script integrity first.
 
 License
 -------
