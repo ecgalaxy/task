@@ -1,5 +1,9 @@
 # Releases
 
+## 2.0.x
+
+- RHEL 7 support removed.
+
 ## 1.7.x
 
 - Task binary integrity is also verified (in addition to the downloaded archive).

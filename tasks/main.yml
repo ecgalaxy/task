@@ -5,14 +5,14 @@
     state: directory
     owner: root
     group: root
-    mode: 0755
+    mode: 'u=rwx,go=rx'
   become: true
 
 - name: Download task archive
   ansible.builtin.get_url:
     url: "{{ task_download_url }}"
     dest: /tmp/task.tar.gz
-    mode: 0655
+    mode: 'u=rw,go=r'
     checksum: "{{ task_archive_checksum }}"
   changed_when: false
 
@@ -23,7 +23,7 @@
     creates: "{{ task_install_path }}/task"
     owner: root
     group: root
-    remote_src: yes
+    remote_src: true
   become: true
 
 - name: Remove task archive
