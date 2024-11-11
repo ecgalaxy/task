@@ -1,7 +1,9 @@
 ECGALAXY task role
 ==================
 
-Installs Task - https://taskfile.dev/
+This Ansible role installs [Task](https://taskfile.dev/).
+
+Task is a task runner / build tool that aims to be simpler and easier to use than, for example, GNU Make.
 
 Requirements
 ------------
@@ -36,6 +38,11 @@ See [ansible-role](https://code.europa.eu/-/snippets/1) for instructions.
 
 Please verify the script integrity first.
 
+Upgrading
+---------
+
+In order to upgrade, reexecute this Ansible role after a new version has been released.
+
 License
 -------
 
@@ -46,4 +53,4 @@ Licensed under the EUPL-1.2 or later.
 Author Information
 ------------------
 
-ECGALAXY team.
+[ECGALAXY](https://code.europa.eu/groups/ecgalaxy/-/wikis/home) team.
